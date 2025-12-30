@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password | Amazing Webtech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-gradient: linear-gradient(135deg, #FF3358 0%, #FF8329 100%);
+            --dark-text: #2D2D2D;
+            --light-text: #666666;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f7f6; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        /* Centered card for Forgot Password */
+        .container-forgot { 
+            width: 450px; 
+            background: white; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); 
+            border-radius: 20px; 
+            padding: 50px; 
+            text-align: center;
+        }
+        
+        .logo-small { width: 80px; margin-bottom: 20px; }
+        h2 { font-size: 26px; color: var(--dark-text); margin-bottom: 10px; }
+        .subtitle { color: var(--light-text); margin-bottom: 30px; font-size: 15px; }
+        
+        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--dark-text); }
+        .input-group input { width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        .input-group input:focus { border-color: #FF3358; }
+
+        .btn-primary { width: 100%; padding: 14px; background: var(--brand-gradient); border: none; border-radius: 8px; color: white; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-primary:hover { opacity: 0.9; }
+
+        .back-link { display: block; margin-top: 25px; font-size: 14px; color: #FF3358; text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container-forgot">
+        <img src="img/logo-dark.png" alt="Amazing Webtech" class="logo-small">
+        <h2>Forgot Password?</h2>
+        <p class="subtitle">Enter your email and we'll send you a link to reset your password.</p>
+
+        <form>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="" required>
+            </div>
+            <button type="submit" class="btn-primary">Send Reset Link</button>
+            <a href="login.html" class="back-link">← Back to Login</a>
+        </form>
+    </div>
+</body>
+</html>

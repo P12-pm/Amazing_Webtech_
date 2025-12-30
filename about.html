@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Amazing WebTech | Digital Marketing Agency</title>
+    <meta name="description" content="Learn about Amazing WebTech, a digital marketing agency delivering outstanding results for over 15 years. Meet our team and discover our values.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --primary: #42a7e2eb;
+            --primary-dark: #46bbe5;
+            --secondary: #48c8ec;
+            --foreground: #1e1b4b;
+            --background: #ffffff;
+            --muted: #f8fafc;
+            --muted-foreground: #64748b;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --gradient: linear-gradient(135deg, #63c9f1 0%, #48d9ec 100%);
+            --primary-foreground: #ffffff;
+        }
+
+        body {
+            font-family:  'Montserrat', sans-serif;
+            color: var(--foreground);
+            background: var(--background);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .font-heading {
+            font-family:  'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 9999px;
+    transition: 300ms cubic-bezier( 0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    min-height: 48px; /* Touch-friendly */
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f19063 0%, #c88d62 50%, #c68157 100%);
+    color: white;
+    box-shadow:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 30px rgba(99, 102, 241, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #c0a08d;
+    border-color: white;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: transparent;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 50px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Main Logo (Logo 1) - Shows initially on desktop */
+        .logo-main {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+
+        /* Scroll Logo (Logo 2) - Shows on scroll */
+        .logo-scroll {
+            height: 45px;
+            width: auto;
+            display: none;
+        }
+
+        .navbar.scrolled .logo-main {
+            display: none;
+        }
+
+        .navbar.scrolled .logo-scroll {
+            display: block;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links > li > a:hover {
+            color: #667eea;
+        }
+
+        .nav-links > li > a i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Dropdown Styles - Desktop */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 15px 0;
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            list-style: none;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover > a i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #555;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .dropdown-menu li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 12px 25px;
+            }
+
+            .navbar.scrolled {
+                padding: 10px 25px;
+            }
+
+            /* Mobile: Always show Logo 2 only */
+            .logo-main {
+                display: none !important;
+            }
+
+            .logo-scroll {
+                display: block !important;
+                height: 40px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 0 30px 0;
+                gap: 0;
+                transition: right 0.4s ease;
+                overflow-y: auto;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links > li > a {
+                padding: 18px 25px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            /* Mobile Dropdown */
+            .dropdown-menu {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                grid-template-columns: 1fr;
+                background: #f8f9fa;
+                min-width: 100%;
+                display: block;
+            }
+
+            .dropdown-menu::before {
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                max-height: 800px;
+                padding: 10px 0;
+            }
+
+            .dropdown.active > a i {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-menu li {
+                display: block;
+                width: 100%;
+            }
+
+            .dropdown-menu li a {
+                padding: 14px 25px 14px 40px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            .dropdown-menu li a:hover {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+            }
+
+            /* Close Button for Mobile Menu */
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+                display: block;
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .close-menu:hover {
+                background: #f0f0f0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo-scroll {
+                height: 35px !important;
+            }
+
+            .nav-links {
+                width: 100%;
+                max-width: none;
+                padding-top: 70px;
+            }
+
+            .nav-links > li > a {
+                padding: 16px 20px;
+            }
+
+            .dropdown-menu li a {
+                padding: 12px 20px 12px 35px;
+            }
+        }
+
+        /* Demo Content */
+        .content {
+            padding: 150px 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 576px) {
+            .content {
+                padding: 120px 20px;
+            }
+            .content h1 {
+                font-size: 2rem;
+            }
+            .content p {
+                font-size: 1rem;
+            }
+        }
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            padding: 160px 0 100px;
+            background: var(--muted);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: var(--gradient);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ==================== OUR STORY SECTION ==================== */
+        .story-section {
+            padding: 100px 0;
+            background: var(--card);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content .subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .story-content h2 {
+            font-family:'Montserrat', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--foreground);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .story-content p {
+            color: var(--muted-foreground);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .story-image {
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--primary);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .story-image-badge {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: var(--gradient);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .story-image-badge h3 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .story-image-badge p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* ==================== VALUES SECTION ==================== */
+        .values-section {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-heading h5 {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--foreground);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.4s ease;
+        }
+
+        .value-icon i {
+            font-size: 32px;
+            color: var(--primary);
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--gradient);
+        }
+
+        .value-card:hover .value-icon i {
+            color: white;
+        }
+
+        .value-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: var(--muted-foreground);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ==================== STATS SECTION ==================== */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .stat-number span {
+            font-size: 36px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+       
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ==================== FOOTER ==================== */
+       .footer {
+    background: #111;
+    padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem; 
+    }
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+}
+
+.footer-col p {
+    color: #9ca3af;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+}
+
+.copyright {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1f2937;
+}
+
+.copyright i {
+    color: #f43f5e;
+}
+
+/* Footer Social */
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.footer-social li a {
+    width: 40px;
+    height: 40px;
+    border-radius:  0.75rem;
+    background:#1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.875rem;
+}
+
+.footer-social li a:hover {
+    background: #c0a08d;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    padding: 1rem 1.25rem   ;
+    border-radius:   0.75rem;
+    font-size: 0.9375rem;
+    background: #1f2937;
+    color: var(--white);
+    border: 2px solid transparent;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 52px;
+}
+
+.newsletter-form input:focus {
+    border-color: #c0a08d;
+}
+
+.newsletter-form input::placeholder {
+    color: #6b7280;
+}
+
+.newsletter-info {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.newsletter-info i {
+    margin-top: 3px;
+    flex-shrink: 0;
+    color:  #cd755c;
+}
+
+
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ==================== OVERLAY ==================== */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1200px) {
+            .values-grid,
+            .stats-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            
+            
+
+           
+
+            .hero-title {
+                font-size: 38px;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-image::before {
+                display: none;
+            }
+
+            .story-image-badge {
+                position: static;
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-heading h3,
+            .cta-content h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            .stat-label {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            
+
+            .logo img {
+                height: 32px;
+            }
+
+            
+
+            .hero-section {
+                padding: 140px 0 80px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .story-content h2 {
+                font-size: 28px;
+            }
+
+            .values-grid,
+            .stats-grid,
+            .team-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 28px;
+            }
+
+            .cta-content p {
+                font-size: 16px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navbar -->
+ <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <!-- Main Logo (shows when not scrolled - Desktop only) -->
+                <img src="img/logo2.png" 
+                     alt="Main Logo" 
+                     class="logo-main">
+                <!-- Scroll Logo (shows when scrolled OR on mobile) -->
+                <img src="img/logo-dark.png" 
+                     alt="Scroll Logo" 
+                     class="logo-scroll">
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <span class="close-menu" id="closeMenu">
+              
+            </span>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="dropdown" id="serviceDropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle">
+                    Services 
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="websitedesign .html">
+                            <i class="fas fa-laptop-code"></i>
+                            Web Design & Dev
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mobileapp.html">
+                            <i class="fas fa-mobile-alt"></i>
+                            Mobile App Dev
+                        </a>
+                    </li>
+                    <li>
+                        <a href="uiux.html">
+                            <i class="fas fa-palette"></i>
+                            UI/UX Design
+                        </a>
+                    </li>
+                    <li>
+                        <a href="branding.html">
+                            <i class="fas fa-building"></i>
+                            Branding Corporate
+                        </a>
+                    </li>
+                    <li>
+                        <a href="seo.html">
+                            <i class="fas fa-search"></i>
+                            SEO
+                        </a>
+                    </li>
+                    <li>
+                        <a href="digitalmarketing.html">
+                            <i class="fas fa-bullhorn"></i>
+                            Digital Marketing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="aeo.html">
+                            <i class="fas fa-microphone"></i>
+                            AEO
+                        </a>
+                    </li>
+                    <li>
+                        <a href="geo.html">
+                            <i class="fas fa-map-marker-alt"></i>
+                            GEO
+                        </a>
+                    </li>
+                    <li>
+                        <a href="printing.html">
+                            <i class="fas fa-print"></i>
+                            Printing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contentcreation.html">
+                            <i class="fas fa-video"></i>
+                            Content Creator
+                        </a>
+                    </li>
+                    <li>
+                        <a href="professionalemail.html">
+                            <i class="fas fa-envelope"></i>
+                            Professional Email
+                        </a>
+                    </li>
+                    <li>
+                        <a href="hosting.html">
+                            <i class="fas fa-server"></i>
+                            Hosting
+                        </a>
+                    </li>
+                    <li>
+                        <a href="2D&3Dvideo.html">
+                            <i class="fas fa-film"></i>
+                            2D/3D Video
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <span class="hero-subtitle">About Us</span>
+                <h1 class="hero-title font-heading">We Are Amazing WebTech</h1>
+                <p class="hero-description">
+                    A digital marketing agency delivering outstanding results, driven by data. 
+                    We deliver inspiring, eye-catching designs and measurable campaigns.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content fade-in-left">
+                    <span class="subtitle">Our Story</span>
+                    <h2 class="font-heading">15+ Years of Excellence</h2>
+                    <p>
+                        AWT is a digital marketing agency, delivering outstanding results, driven by data. 
+                        We deliver inspiring, eye-catching designs and measurable campaigns that connect with 
+                        target audiences, boost online marketing and encourage business growth.
+                    </p>
+                    <p>
+                        Founded with a vision to help businesses thrive in the digital age, we've grown from 
+                        a small team of passionate designers to a full-service digital agency serving clients 
+                        across the globe.
+                    </p>
+                    <p>
+                        Our team of experts specializes in web design, development, digital marketing, 
+                        branding, and more. We're committed to delivering solutions that not only look great 
+                        but also drive real business results.
+                    </p>
+                </div>
+                <div class="story-image fade-in-right">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Creative Team at Work">
+                    <div class="story-image-badge">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-heading">
+                <h5>What Drives Us</h5>
+                <h3 class="font-heading">Our Core Values</h3>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card fade-in-up" data-delay="0">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="font-heading">Excellence</h3>
+                    <p>We strive for excellence in every project, delivering outstanding results that exceed expectations.</p>
+                </div>
+
+                <div class="value-card fade-in-up" data-delay="100">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-heading">Collaboration</h3>
+                    <p>We work closely with our clients, treating their goals as our own to ensure mutual success.</p>
+                </div>
+
+                <div class="value-card fade-in-up" data-delay="200">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-heading">Innovation</h3>
+                    <p>We embrace new technologies and creative approaches to stay ahead of industry trends.</p>
+                </div>
+
+                <div class="value-card fade-in-up" data-delay="300">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="font-heading">Efficiency</h3>
+                    <p>We optimize our processes to deliver high-quality work on time and within budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up" data-delay="0">
+                    <div class="stat-number">
+                        <span class="counter" data-target="500">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+
+                <div class="stat-item fade-in-up" data-delay="100">
+                    <div class="stat-number">
+                        <span class="counter" data-target="150">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+
+                <div class="stat-item fade-in-up" data-delay="200">
+                    <div class="stat-number">
+                        <span class="counter" data-target="15">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+
+                <div class="stat-item fade-in-up" data-delay="300">
+                    <div class="stat-number">
+                        <span class="counter" data-target="25">0</span><span>+</span>
+                    </div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in-up">
+                <h2 class="font-heading">Ready to Work Together?</h2>
+                <p>
+                    Let's discuss how we can help transform your digital presence and grow your business.
+                </p>
+                <a href="contact.html" class="btn-ghost">
+                    Get In Touch <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About AmazingWebTech</h4>
+                    <p>We are a web design agency helping businesses of all size get a better return from online activities. We design and build stunning bespoke websites and we can help with a wide range of online marketing strategies. Every website that we create is designed and built by our team of friendly web designers and you have full content management so that you can update your website whenever you wish.</p>
+                    <p class="copyright">© 2021 amazingwebtech · Made with  for great people.<i class="fa-solid fa-heart"></i> for great people.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <ul class="footer-social">
+                        <li><a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li><a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a></li>
+                        <li><a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a></li>
+                        <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+                        <li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" placeholder="Enter your email *" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="newsletter-info">
+                        <i class="fa-solid fa-circle-info"></i>
+                        We will never send you spam or share your email with third parties
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('overlay');
+        const closeMenu = document.getElementById('closeMenu');
+        const serviceDropdown = document.getElementById('serviceDropdown');
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        // Scroll Effect - Navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function closeMobileMenu() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openMobileMenu() {
+            menuToggle.classList.add('active');
+            navLinks.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        menuToggle.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        closeMenu.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', closeMobileMenu);
+
+        // Dropdown Toggle for Mobile
+        const dropdownToggle = serviceDropdown.querySelector('.dropdown-toggle');
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                serviceDropdown.classList.toggle('active');
+            }
+        });
+
+        // Close dropdown when clicking on dropdown items
+        const dropdownItems = serviceDropdown.querySelectorAll('.dropdown-menu a');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    closeMobileMenu();
+                    serviceDropdown.classList.remove('active');
+                }
+            });
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                closeMobileMenu();
+                serviceDropdown.classList.remove('active');
+            }
+        });
+
+        // Scroll to Top
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    
+                    // Check if it's the stats section
+                    if (entry.target.closest('.stats-section')) {
+                        animateCounters();
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Special observer for stats section
+        const statsSection = document.querySelector('.stats-section');
+        let statsAnimated = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Initial animation for hero section
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.hero-content').classList.add('visible');
+            }, 200);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== 'javascript:void(0);') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrolled < 600) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                heroContent.style.opacity = 1 - (scrolled * 0.002);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Webtech | Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-gradient: linear-gradient(135deg, #FF3358 0%, #FF8329 100%);
+            --dark-text: #2D2D2D;
+            --light-text: #666666;
+            --border: #e0e0e0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f7f6; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+        .container {
+            display: flex;
+            width: 1050px;
+            min-height: 750px;
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        /* Branding Side */
+        .brand-section {
+            flex: 1;
+            background: var(--brand-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .main-logo { width: 180px; margin-bottom: 20px; }
+        .brand-section h1 { font-size: 2rem; margin-bottom: 15px; }
+
+        /* Form Side */
+        .form-section { flex: 1.2; padding: 40px 60px; overflow-y: auto; display: flex; align-items: center; }
+        .form-wrapper { width: 100%; max-width: 400px; margin: 0 auto; }
+        h2 { font-size: 28px; color: var(--dark-text); margin-bottom: 8px; }
+        .subtitle { color: var(--light-text); margin-bottom: 25px; font-size: 14px; }
+
+        /* Social Register Buttons */
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 18px;
+        }
+        .social-btn:hover { background: #f8f8f8; }
+        .social-btn.google { color: #DB4437; }
+        .social-btn.facebook { color: #4267B2; }
+        .social-btn.github { color: #333; }
+
+        .divider { text-align: center; margin: 20px 0; position: relative; }
+        .divider::before { content: ""; position: absolute; left: 0; top: 50%; width: 35%; height: 1px; background: var(--border); }
+        .divider::after { content: ""; position: absolute; right: 0; top: 50%; width: 35%; height: 1px; background: var(--border); }
+        .divider span { font-size: 12px; color: #999; background: white; padding: 0 10px; }
+
+        /* Toggle Button */
+        .method-toggle { display: flex; background: #f0f0f0; padding: 4px; border-radius: 10px; margin-bottom: 20px; }
+        .toggle-btn { flex: 1; padding: 10px; border: none; background: transparent; cursor: pointer; font-weight: 600; font-size: 13px; border-radius: 8px; transition: 0.3s; }
+        .toggle-btn.active { background: white; color: #FF3358; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        /* Form Fields */
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--dark-text); }
+        .input-group input { width: 100%; padding: 11px 15px; border: 1.5px solid var(--border); border-radius: 10px; outline: none; transition: 0.3s; }
+        .input-group input:focus { border-color: #FF3358; }
+
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: var(--brand-gradient);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .switch-form { text-align: center; margin-top: 20px; font-size: 14px; color: var(--light-text); }
+        .switch-form a { color: #FF3358; text-decoration: none; font-weight: 600; }
+
+        @media (max-width: 850px) { .brand-section { display: none; } .container { width: 100%; height: auto; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="brand-section">
+        <div class="brand-content">
+            <img src="img/lgog.png" alt="Amazing Webtech Logo" class="main-logo">
+            <h1>AMAZING WEBTECH</h1>
+            <p>Digital Marketing • UI/UX • CREATIVE WEB</p>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="form-wrapper">
+            <h2>Join Us</h2>
+            <p class="subtitle">Quickly create your account using social media or your details.</p>
+
+            <div class="social-grid">
+                <button class="social-btn google" title="Sign up with Google"><i class="fab fa-google"></i></button>
+                <button class="social-btn facebook" title="Sign up with Facebook"><i class="fab fa-facebook-f"></i></button>
+                <button class="social-btn github" title="Sign up with GitHub"><i class="fab fa-github"></i></button>
+            </div>
+
+            <div class="divider"><span>Or Register Manually</span></div>
+
+            <div class="method-toggle">
+                <button class="toggle-btn active" id="btn-email" onclick="showEmail()">Email Signup</button>
+                <button class="toggle-btn" id="btn-mobile" onclick="showMobile()">Mobile Signup</button>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="" required>
+                </div>
+
+                <div id="email-fields">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="">
+                    </div>
+                </div>
+
+                <div id="mobile-fields" style="display: none;">
+                    <div class="input-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" placeholder="">
+                    </div>
+                    <div class="input-group">
+                        <label>One-Time Password (OTP)</label>
+                        <div style="display:flex; gap:10px;">
+                            <input type="text" placeholder="6-digit OTP" style="flex:2;">
+                            <button type="button" style="flex:1; background:#f0f0f0; border:1px solid #ddd; border-radius:10px; font-size:12px; cursor:pointer;">Send OTP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 11px; color: #888; margin: 15px 0;">
+                    By clicking "Create Account", you agree to the Terms of Service.
+                </p>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+                
+                <p class="switch-form">Already have an account? <a href="login.html">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showEmail() {
+        document.getElementById('email-fields').style.display = 'block';
+        document.getElementById('mobile-fields').style.display = 'none';
+        document.getElementById('btn-email').classList.add('active');
+        document.getElementById('btn-mobile').classList.remove('active');
+    }
+
+    function showMobile() {
+        document.getElementById('email-fields').style.display = 'none';
+        document.getElementById('mobile-fields').style.display = 'block';
+        document.getElementById('btn-mobile').classList.add('active');
+        document.getElementById('btn-email').classList.remove('active');
+    }
+</script>
+
+</body>
+</html>
