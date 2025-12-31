@@ -113,13 +113,13 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--gray-700);
-    background: var(--white);
+    /* Keep only the white background */
+    background: var(--white); 
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  <-- REMOVED */
     min-height: 200vh;
-
 }
 
 /* Base Elements */
@@ -2811,5 +2811,6 @@ console.log('%c 🚀 Amazing WebTech ', 'background: linear-gradient(135deg, #63
 </body>
 
 </html>
+
 
 
