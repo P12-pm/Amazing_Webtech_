@@ -820,24 +820,9 @@
             transform: translateX(5px);
         }
 
-        /* ==================== MAP SECTION ==================== */
-        .map-section {
-            padding: 0 0 100px;
-            background: var(--muted);
-        }
+        
 
-        .map-container {
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-        }
-
+      
         /* ==================== FAQ SECTION ==================== */
         .faq-section {
             padding: 100px 0;
@@ -1180,100 +1165,6 @@
         }
 
         @media (max-width: 992px) {
-            .navbar {
-                padding: 15px 25px;
-            }
-
-            .navbar.scrolled {
-                padding: 12px 25px;
-            }
-
-            .logo img {
-                height: 38px;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 350px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 0 30px;
-                gap: 0;
-                transition: right 0.4s ease;
-                overflow-y: auto;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links > li {
-                width: 100%;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links > li > a {
-                color: var(--foreground) !important;
-                padding: 18px 25px;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .dropdown-menu {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                box-shadow: none;
-                border-radius: 0;
-                padding: 0;
-                margin: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                grid-template-columns: 1fr;
-                background: var(--muted);
-                min-width: 100%;
-            }
-
-            .dropdown-menu::before {
-                display: none;
-            }
-
-            .dropdown.active .dropdown-menu {
-                max-height: 800px;
-                padding: 10px 0;
-            }
-
-            .dropdown.active > a i {
-                transform: rotate(180deg);
-            }
-
-            .dropdown-menu li a {
-                padding: 14px 25px 14px 45px;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-btn {
-                display: none;
-            }
-
-            .close-menu {
-                display: flex;
-            }
 
             .hero-title {
                 font-size: 38px;
@@ -1288,13 +1179,6 @@
                 padding: 40px 30px;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
             .section-title h2 {
                 font-size: 32px;
@@ -1302,9 +1186,7 @@
         }
 
         @media (max-width: 576px) {
-            .navbar {
-                padding: 12px 15px;
-            }
+           
 
             .logo img {
                 height: 32px;
@@ -1345,20 +1227,6 @@
                 font-size: 26px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .footer-bottom-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
 
             .faq-question h3 {
                 font-size: 16px;
@@ -2038,4 +1906,5 @@
         });
     </script>
 </body>
+
 </html>
