@@ -47,11 +47,11 @@
     --white: #ffffff;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #f19063 0%, #c88d62 50%, #c68157 100%);
+    --gradient-primary: linear-gradient(135deg, #6387f1 0%, #62bfc8 50%, #57b5c6 100%);
     --gradient-secondary: linear-gradient(135deg, #d9e5e8 0%, #3bcef6 100%);
     --gradient-warm: linear-gradient(135deg, #d68a53 0%, #f43f5e 100%);
     --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    --gradient-hero: linear-gradient(135deg, rgba(207, 97, 53, 0.179) 0%, rgba(206, 98, 62, 0.85) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(207, 97, 53, 0.179) 0%, rgba(62, 177, 206, 0.85) 100%);
     
     /* Shadows */
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -107,6 +107,7 @@ html {
     -webkit-text-size-adjust: 100%;
     font-size: 16px;
 }
+
 
 body {
     font-family: var(--font-family);
@@ -179,8 +180,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     color: var(--dark);
-    font-family: 'Montserrat', sans-serif;
+    font-family:'Raleway', sans-serif;
 }
+
 
 h1 { font-size: clamp(2rem, 6vw, 4rem); }
 h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
@@ -244,468 +246,551 @@ p {
     width: 100%;
 }
 
-/* ===================================
-   Navbar - Mobile First
-   =================================== */
-   /* Navbar Styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background: transparent;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+/* ============================================
+   AMAZING WEBTECH - INSPIRED DESIGN
+   Colors & Fonts Matched to amazingwebtech.com
+============================================ */
 
-        .navbar.scrolled {
-            padding: 10px 50px;
-            background: rgb(255, 255, 255);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        }
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
-        /* Logo Styles */
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
+/* ============================================
+   ROOT VARIABLES - AMAZING WEBTECH COLORS
+============================================ */
+:root {
+    /* Primary Colors - Blue Theme */
+    --primary-color: #0066cc;
+    --primary-dark: #004d99;
+    --primary-light: #3399ff;
+    --primary-gradient: linear-gradient(135deg, #0066cc 0%, #0099ff 50%, #00ccff 100%);
+    
+    /* Secondary Colors */
+    --secondary-color: #ff6600;
+    --secondary-dark: #cc5200;
+    --secondary-light: #ff8533;
+    
+    /* Accent Colors */
+    --accent-blue: #00a8e8;
+    --accent-cyan: #00d4ff;
+    --accent-purple: #6366f1;
+    --accent-orange: #ff6b35;
+    
+    /* Neutral Colors */
+    --dark-color: #1a1a2e;
+    --dark-secondary: #16213e;
+    --text-dark: #2c3e50;
+    --text-color: #444444;
+    --text-light: #666666;
+    --text-muted: #888888;
+    
+    /* Background Colors */
+    --white: #ffffff;
+    --off-white: #f8f9fa;
+    --light-gray: #f5f5f5;
+    --border-color: #e0e0e0;
+    
+    /* Gradients */
+    --gradient-blue: linear-gradient(135deg, #4881b9 0%, #00a8e8 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --gradient-overlay: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 168, 232, 0.85) 50%, rgba(0, 212, 255, 0.9) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(0, 102, 204, 0.85) 100%);
+    
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Font Sizes */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: 1.5rem;
+    --fs-3xl: 2rem;
+    --fs-4xl: 2.5rem;
+    --fs-5xl: 3rem;
+    --fs-6xl: 4rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.2);
+    --shadow-blue: 0 10px 40px rgba(0, 102, 204, 0.3);
+    --shadow-card: 0 5px 20px rgba(0, 0, 0, 0.08);
+    
+    /* Spacing */
+    --navbar-height: 80px;
+    --navbar-height-scrolled: 70px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-full: 50px;
+}
 
-        .logo {
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
+/* ============================================
+   RESET & BASE STYLES
+============================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Main Logo (Logo 1) - Shows initially on desktop */
-        .logo-main {
-            height: 70px;
-            width: auto;
-            display: block;
-        }
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-        /* Scroll Logo (Logo 2) - Shows on scroll */
-        .logo-scroll {
-            height: 45px;
-            width: auto;
-            display: none;
-        }
+body {
+    font-family: var(--font-body);
+    background-color: var(--white);
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
 
-        .navbar.scrolled .logo-main {
-            display: none;
-        }
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Raleway', sans-serif;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
 
-        .navbar.scrolled .logo-scroll {
-            display: block;
-        }
+p {
+    font-family: var(--font-body);
+    color: var(--text-color);
+}
 
-        /* Navigation Links */
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-            list-style: none;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
 
-        .nav-links > li {
-            position: relative;
-        }
+ul {
+    list-style: none;
+}
 
-        .nav-links > li > a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 10px 0;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-        .nav-links > li > a:hover {
-            color: #667eea;
-        }
+button {
+    font-family: var(--font-primary);
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
 
-        .nav-links > li > a i {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
+/* Selection */
+::selection {
+    background: var(--primary-color);
+    color: var(--white);
+}
 
-        /* Dropdown Styles - Desktop */
-        .dropdown {
-            position: relative;
-        }
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
 
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            min-width: 320px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 15px 0;
-            margin-top: 15px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 5px;
-            list-style: none;
-        }
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
 
-        .dropdown-menu::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid white;
-        }
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-blue);
+    border-radius: var(--radius-full);
+}
 
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            margin-top: 10px;
-        }
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
 
-        .dropdown:hover > a i {
-            transform: rotate(180deg);
-        }
+/* ============================================
+   SKIP LINK (ACCESSIBILITY)
+============================================ */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    z-index: 10000;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: var(--transition-fast);
+}
 
-        .dropdown-menu li a {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 400;
-            color: #555;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-        }
+.skip-link:focus {
+    top: 20px;
+    outline: 3px solid var(--accent-orange);
+    outline-offset: 2px;
+}
 
-        .dropdown-menu li a:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
+/* ============================================
+   NAVBAR STYLES
+============================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background: transparent;
+    z-index: 1000;
+    transition: all var(--transition-smooth);
+}
 
-        .dropdown-menu li a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
+/* Scrolled State */
+.navbar.scrolled {
+    height: var(--navbar-height-scrolled);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+}
 
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-            background: none;
-            border: none;
-        }
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+}
 
-        .menu-toggle span {
-            width: 28px;
-            height: 3px;
-            background: #333;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            display: block;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
+.logo-main,
+.logo-scroll {
+    height: 55px;
+    width: auto;
+    transition: var(--transition-normal);
+}
 
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
+.logo-main {
+    display: block;
+}
 
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
+.logo-scroll {
+    display: none;
+}
 
-        /* Overlay */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 998;
-        }
+.navbar.scrolled .logo-main {
+    display: none;
+}
 
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+.navbar.scrolled .logo-scroll {
+    display: block;
+}
 
-        /* Mobile Styles */
-        @media (max-width: 992px) {
-            .navbar {
-                padding: 12px 25px;
-            }
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-            .navbar.scrolled {
-                padding: 10px 25px;
-            }
+.nav-links > li > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 22px;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    border-radius: var(--radius-full);
+    position: relative;
+    transition: var(--transition-normal);
+    text-transform: capitalize;
+}
 
-            /* Mobile: Always show Logo 2 only */
-            .logo-main {
-                display: none !important;
-            }
+.navbar.scrolled .nav-links > li > a {
+    color: var(--text-dark);
+}
 
-            .logo-scroll {
-                display: block !important;
-                height: 50px;
-            }
+/* Nav Link Hover Effect */
+.nav-links > li > a::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 22px;
+    right: 22px;
+    height: 2px;
+    background: var(--white);
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
 
-            .menu-toggle {
-                display: flex;
-            }
+.navbar.scrolled .nav-links > li > a::before {
+    background: var(--primary-color);
+}
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 350px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 0 30px 0;
-                gap: 0;
-                transition: right 0.4s ease;
-                overflow-y: auto;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
+.nav-links > li > a:hover::before {
+    transform: scaleX(1);
+}
 
-            .nav-links.active {
-                right: 0;
-            }
+.nav-links > li > a:hover {
+    color: var(--white);
+}
 
-            .nav-links > li {
-                width: 100%;
-                border-bottom: 1px solid #eee;
-            }
+.navbar.scrolled .nav-links > li > a:hover {
+    color: var(--primary-color);
+}
 
-            .nav-links > li > a {
-                padding: 18px 25px;
-                width: 100%;
-                justify-content: space-between;
-            }
+/* Active Link */
+.nav-links > li > a.active {
+    background: var(--primary-color);
+    color: var(--white);
+}
 
-            /* Mobile Dropdown */
-            .dropdown-menu {
-                position: static;
-                top: 0;
-                left: 0;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                box-shadow: none;
-                border-radius: 0;
-                padding: 0;
-                margin: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                grid-template-columns: 1fr;
-                background: #f8f9fa2f;
-                min-width: 100%;
-                display: block;
-            }
+.nav-links > li > a.active::before {
+    display: none;
+}
 
-            .dropdown-menu::before {
-                display: none;
-            }
+/* Dropdown Toggle */
+.dropdown-toggle {
+    cursor: pointer;
+}
 
-            .dropdown.active .dropdown-menu {
-                max-height: 800px;
-                padding: 10px 0;
-            }
+.dropdown-toggle i {
+    font-size: 0.65rem;
+    transition: transform var(--transition-normal);
+    margin-left: 2px;
+}
 
-            .dropdown.active > a i {
-                transform: rotate(180deg);
-            }
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
 
-            .dropdown-menu li {
-                display: block;
-                width: 100%;
-            }
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
 
-            .dropdown-menu li a {
-                padding: 14px 25px 14px 40px;
-                border-bottom: 1px solid #eee;
-            }
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    min-width: 280px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-smooth);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    border: 1px solid var(--border-color);
+}
 
-            .dropdown-menu li:last-child a {
-                border-bottom: none;
-            }
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 
-            .dropdown-menu li a:hover {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
-            }
+/* Dropdown Arrow */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--white);
+    filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.05));
+}
 
-            /* Close Button for Mobile Menu */
-            .close-menu {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                font-size: 24px;
-                color: #333;
-                cursor: pointer;
-                display: block;
-                width: 35px;
-                height: 35px;
-                line-height: 35px;
-                text-align: center;
-                border-radius: 50%;
-                transition: all 0.3s ease;
-            }
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+    white-space: nowrap;
+}
 
-            .close-menu:hover {
-                background: #f0f0f0;
-            }
-        }
+.dropdown-menu li a:hover {
+    background: var(--gradient-blue);
+    color: var(--white);
+    transform: translateX(5px);
+}
 
-        @media (max-width: 576px) {
-            .navbar {
-                padding: 10px 15px;
-            }
+.dropdown-menu li a i {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    background: rgba(0, 102, 204, 0.1);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+}
 
-            .logo-scroll {
-                height: 50px !important;
-            }
+.dropdown-menu li a:hover i {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.2);
+}
 
-            .nav-links {
-                width: 100%;
-                max-width: none;
-                padding-top: 70px;
-            }
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    z-index: 1001;
+}
 
-            .nav-links > li > a {
-                padding: 16px 20px;
-            }
+.navbar.scrolled .menu-toggle {
+    background: var(--light-gray);
+}
 
-            .dropdown-menu li a {
-                padding: 12px 20px 12px 35px;
-            }
-        }
+.menu-toggle span {
+    width: 24px;
+    height: 2.5px;
+    background: var(--white);
+    margin: 3px 0;
+    border-radius: var(--radius-full);
+    transition: var(--transition-normal);
+}
 
-        /* Demo Content */
-        .content {
-            padding: 150px 50px;
-            color: white;
-            text-align: center;
-        }
+.navbar.scrolled .menu-toggle span {
+    background: var(--text-dark);
+}
 
-        .content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
 
-        .content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
 
-        @media (max-width: 576px) {
-            .content {
-                padding: 120px 20px;
-            }
-            .content h1 {
-                font-size: 2rem;
-            }
-            .content p {
-                font-size: 1rem;
-            }
-        }
-/* ===================================
-   Hero Section
-   =================================== */
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Close Menu Button */
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+}
+
+.close-menu:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 46, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
 .hero-section {
     position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: var(--space-20) 0 var(--space-12);
+    background: var(--gradient-dark);
 }
 
+/* Video Background */
 .hero-video-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
 }
 
 .hero-video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: scale(1);
+    transform: scale(1.02);
 }
 
-.hero-video-container.zoom-effect video {
-    transform: scale(1.1);
-}
-
-.slide .subheading, 
-.slide .main-heading, 
-.slide .hero-description, 
-.slide .hero-buttons {
-    opacity: 0;
-    transform: translateY(60px) scale(0.9);
-    transition: none; /* Reset for animation */
-}
-
-/* The Elastic Bounce Curve */
-@keyframes elasticPop {
-    0% {
-        opacity: 0;
-        transform: translateY(60px) scale(0.9);
-    }
-    60% {
-        transform: translateY(-10px) scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.slide.active .subheading { animation: elasticPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
-.slide.active .main-heading { animation: elasticPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
-.slide.active .hero-description { animation: elasticPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
-.slide.active .hero-buttons { animation: elasticPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
+/* Gradient Overlay */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -713,228 +798,1088 @@ p {
     width: 100%;
     height: 100%;
     background: var(--gradient-hero);
+    z-index: 2;
 }
 
-/* Animated Background Elements */
+/* Animated Pattern Overlay */
+.hero-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(0, 102, 204, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 168, 232, 0.3) 0%, transparent 50%);
+    animation: gradientPulse 8s ease-in-out infinite;
+}
+
+@keyframes gradientPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Shimmer Effect */
+.hero-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        transparent 100%
+    );
+    animation: shimmer 10s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+
+/* ============================================
+   ANIMATED BACKGROUND ELEMENTS
+============================================ */
 .hero-bg-elements {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    z-index: 3;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .hero-bg-elements .circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    animation: float 15s infinite ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(0, 168, 232, 0.1) 0%,
+        rgba(0, 102, 204, 0.05) 50%,
+        transparent 100%
+    );
 }
 
 .hero-bg-elements .circle:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: 10%;
-    left: -100px;
-    animation-delay: 0s;
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -150px;
+    animation: float1 25s infinite ease-in-out;
 }
 
 .hero-bg-elements .circle:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    top: 60%;
-    right: -50px;
-    animation-delay: -5s;
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -100px;
+    animation: float2 20s infinite ease-in-out;
 }
 
 .hero-bg-elements .circle:nth-child(3) {
-    width: 150px;
-    height: 150px;
-    bottom: 20%;
-    left: 20%;
-    animation-delay: -10s;
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 10%;
+    animation: float3 18s infinite ease-in-out;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-40px, 50px) rotate(90deg); }
+    50% { transform: translate(30px, -30px) rotate(180deg); }
+    75% { transform: translate(-30px, -40px) rotate(270deg); }
 }
 
-/* Hero Slider */
-/* Hero Slider Container */
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -40px) scale(1.05); }
+    66% { transform: translate(-40px, 40px) scale(0.95); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    50% { transform: translate(60px, -60px); opacity: 0.8; }
+}
+
+/* Particle Effect */
+.hero-bg-elements::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 100px 50px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 200px 150px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 300px 100px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 400px 200px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 500px 50px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 600px 150px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 50px 250px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 150px 350px, rgba(255,255,255,0.3), transparent);
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ============================================
+   HERO SLIDER
+============================================ */
 .hero-slider {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Individual Slides */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-}
-
-/* Base Slide State */
-.slide {
-    position: absolute;
-    width: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.6s ease;
     z-index: 1;
 }
 
 .slide.active {
     opacity: 1;
     visibility: visible;
-    position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
-/* Reset individual elements for animation */
-.slide .subheading, 
-.slide .main-heading, 
-.slide .hero-description, 
-.slide .hero-buttons {
-    opacity: 0;
-    transform: translateY(50px) scale(0.9);
-    will-change: transform, opacity;
+/* Slide Animations */
+.slide.fade-in {
+    animation: fadeSlideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Animation trigger when slide is active */
-.slide.active .subheading { animation: smoothBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
-.slide.active .main-heading { animation: smoothBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
-.slide.active .hero-description { animation: smoothBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
-.slide.active .hero-buttons { animation: smoothBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
+.slide.fade-out {
+    animation: fadeSlideOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 
-@keyframes smoothBounceIn {
+@keyframes fadeSlideIn {
     0% {
         opacity: 0;
-        transform: translateY(50px) scale(0.9);
+        transform: scale(1.05);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1);
     }
 }
 
+@keyframes fadeSlideOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+/* ============================================
+   HERO CONTENT
+============================================ */
 .hero-content {
     text-align: center;
-    color: var(--white);
-    padding: 0 var(--space-4);
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1000px;
+    position: relative;
 }
 
+/* Subheading */
 .subheading {
     display: inline-block;
-    font-size: 0.75rem;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
     font-weight: 600;
+    color: var(--white);
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: var(--space-4);
-    padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, 0.15);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    padding: 14px 30px;
+    background: rgba(0, 102, 204, 0.3);
     border-radius: var(--radius-full);
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
 }
 
+.slide.active .subheading {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subheading Shine Effect */
+.subheading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: subheadingShine 4s infinite;
+}
+
+@keyframes subheadingShine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+/* Main Heading */
 .main-heading {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-family: var(--font-primary);
+    font-size: clamp(2.8rem, 8vw, 6rem);
     font-weight: 800;
-    line-height: 1.05;
-    margin-bottom: var(--space-6);
-    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Text Reveal Animation */
+.main-heading .line {
+    display: block;
+    overflow: hidden;
+}
+
+.main-heading .line span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.active .main-heading .line:nth-child(1) span {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.slide.active .main-heading .line:nth-child(2) span {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+/* Gradient Text Highlight */
+.main-heading .highlight {
+    background: linear-gradient(135deg, #00d4ff 0%, #00a8e8 50%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
 }
 
-.hero-description {
-    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
-    max-width: 500px;
-    margin: 0 auto var(--space-8);
-    opacity: 0.9;
-    line-height: 1.7;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    justify-content: center;
-    align-items: center;
-}
-
-@media (min-width: 480px) {
-    .hero-buttons {
-        flex-direction: row;
+/* For browsers that don't support gradient text */
+@supports not (-webkit-background-clip: text) {
+    .main-heading .highlight {
+        color: var(--accent-cyan);
     }
 }
 
-.scroll-indicator {
-    display: block;
-    margin-top: var(--space-12);
+/* Hero Description */
+.hero-description {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 500;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.7s;
+}
+
+.slide.active .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   HERO BUTTONS
+============================================ */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.9s;
+}
+
+.slide.active .hero-buttons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button Base Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 40px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: var(--radius-full);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Button Shine Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 2;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: var(--primary-color);
     color: var(--white);
-    animation: bounce 2s infinite;
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.4);
+}
+
+/* Outline Button */
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
+}
+
+/* Button Ripple Effect */
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   SCROLL INDICATOR
+============================================ */
+.scroll-indicator {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 1.1s;
+    cursor: pointer;
+}
+
+.slide.active .scroll-indicator {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .scroll-indicator i {
-    font-size: 1.5rem;
-    opacity: 0.8;
+    font-size: 1.3rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: bounceDown 2s infinite;
+    transition: var(--transition-normal);
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.scroll-indicator:hover i {
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
 }
 
-/* Slider Navigation */
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(10px); }
+    60% { transform: translateY(5px); }
+}
+
+/* ============================================
+   SLIDER NAVIGATION ARROWS
+============================================ */
 .slider-nav {
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
-    z-index: 10;
-    pointer-events: none; /* Allows clicking content behind the container */
-    padding: 0 var(--space-6);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 0 30px;
+    z-index: 20;
+    pointer-events: none;
 }
 
 .slider-arrow {
-    pointer-events: auto; /* Re-enables clicking for buttons */
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    color: var(--white);
-    font-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
     cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+/* Arrow Icon */
+.slider-arrow img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Arrow Background Fill */
+.slider-arrow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.slider-arrow:hover::before {
+    width: 100%;
+    height: 100%;
 }
 
 .slider-arrow:hover {
-    color: var(--primary);
+    border-color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+}
+
+.slider-arrow:hover img {
+    filter: none;
+}
+
+/* Arrow Animation on Hover */
+.slider-arrow.prev:hover img {
+    animation: slideLeft 0.4s ease;
+}
+
+.slider-arrow.next:hover img {
+    animation: slideRight 0.4s ease;
+}
+
+@keyframes slideLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+}
+
+@keyframes slideRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+/* ============================================
+   SLIDER DOTS / PAGINATION
+============================================ */
+.slider-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.slider-dot.active {
+    background: transparent;
+    border: 2px solid var(--white);
+    transform: scale(1.3);
+}
+
+.slider-dot.active::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Progress Ring Effect */
+.slider-dot.active::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border: 2px solid transparent;
+    border-top-color: var(--accent-cyan);
+    border-radius: 50%;
+    animation: dotProgress 5s linear forwards;
+}
+
+@keyframes dotProgress {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   PROGRESS BAR
+============================================ */
+.slider-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 20;
+    overflow: hidden;
+}
+
+.slider-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-cyan));
+    width: 0;
+    transition: width 0.1s linear;
+    position: relative;
+    border-radius: 0 var(--radius-full) var(--radius-full) 0;
+}
+
+.slider-progress-bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6));
+}
+
+/* ============================================
+   SLIDE COUNTER
+============================================ */
+.slide-counter {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    z-index: 20;
+    font-family: var(--font-primary);
+}
+
+.slide-counter .current {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slide-counter .separator {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 8px;
+}
+
+.slide-counter .total {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   PAUSE/PLAY BUTTON
+============================================ */
+.slider-control {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 20;
+}
+
+.pause-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pause-play-btn:hover {
+    background: var(--white);
+    border-color: var(--white);
     transform: scale(1.1);
 }
 
+.pause-play-btn i {
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
 
+.pause-play-btn:hover i {
+    color: var(--primary-color);
+}
 
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+    .dropdown-menu {
+        min-width: 260px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    :root {
+        --navbar-height: 75px;
+    }
+    
     .slider-arrow {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .slider-arrow img {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .slide-counter .current {
+        font-size: 3rem;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+    .nav-links > li > a {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .dropdown-menu {
+        grid-template-columns: 1fr;
+        min-width: 220px;
+    }
+    
+    .slider-nav {
+        padding: 0 20px;
+    }
+    
+    .slide-counter {
+        right: 30px;
+    }
+    
+    .slider-control {
+        left: 30px;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 100px 30px 40px;
+        gap: 5px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        overflow-y: auto;
+        box-shadow: var(--shadow-xl);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links > li > a {
+        color: var(--text-dark);
+        padding: 16px 20px;
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+    }
+    
+    .nav-links > li > a::before {
+        display: none;
+    }
+    
+    .nav-links > li > a:hover {
+        background: var(--light-gray);
+        color: var(--primary-color);
+    }
+    
+    .close-menu {
+        display: flex;
+    }
+    
+    /* Mobile Dropdown */
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        background: var(--light-gray);
+        margin-top: 5px;
+        padding: 10px;
+        display: none;
+        border-radius: var(--radius-md);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .dropdown-menu::before {
+        display: none;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: grid;
+        max-height: 500px;
+    }
+    
+    /* Mobile Logo */
+    .logo-main {
+        display: none !important;
+    }
+    
+    .logo-scroll {
+        display: block !important;
+        height: 45px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 70px;
+        --navbar-height-scrolled: 65px;
+    }
+    
+    .navbar {
+        padding: 0 20px;
+    }
+    
+    /* Hero Mobile */
+    .hero-section {
+        min-height: 100vh;
+    }
+    
+    .main-heading {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        letter-spacing: 1px;
+    }
+    
+    .subheading {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        padding: 10px 20px;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 15px 30px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    
+    .slider-nav {
+        top: auto;
+        bottom: 130px;
+        transform: none;
+    }
+    
+    .slider-arrow {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .slider-arrow img {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .slider-dots {
+        bottom: 35px;
+        gap: 10px;
+    }
+    
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .slide-counter,
+    .slider-control {
+        display: none;
+    }
+    
+    .slider-progress {
+        height: 3px;
+    }
+    
+    .scroll-indicator i {
         width: 45px;
         height: 45px;
         font-size: 1rem;
     }
-    .slider-nav {
-        padding: 0 var(--space-2);
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
     }
+    
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .main-heading {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .subheading {
+        font-size: 0.7rem;
+        padding: 8px 16px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 25px;
+    }
+    
+    .slider-nav {
+        bottom: 110px;
+        padding: 0 15px;
+    }
+    
+    .slider-arrow {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .slider-dots {
+        bottom: 25px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .main-heading {
+        font-size: 1.6rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-video-container video {
+        transform: none;
+    }
+}
+
+/* Focus Styles */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 3px;
+}
+
+.slider-arrow:focus-visible,
+.slider-dot:focus-visible,
+.pause-play-btn:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 3px;
 }
 
 /* ===================================
@@ -1883,6 +2828,475 @@ html {
     background: var(--primary);
     color: var(--white);
 }
+
+/* Custom Cursor Elements */
+
+/* ============================================
+   CUSTOM CURSOR ANIMATION
+   Amazing WebTech Style
+============================================ */
+
+/* Hide default cursor on desktop */
+@media (min-width: 992px) {
+    * {
+        cursor: none !important;
+    }
+}
+
+/* ============================================
+   CURSOR WRAPPER
+============================================ */
+.cursor-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+/* ============================================
+   MAIN CURSOR (Small Dot)
+============================================ */
+.cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color, #cc1400);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100001;
+    transform: translate(-50%, -50%);
+    transition: 
+        width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+/* Cursor States */
+.cursor.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cursor.hover {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.cursor.click {
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.cursor.text-mode {
+    width: 3px;
+    height: 25px;
+    border-radius: 2px;
+    background: var(--primary-color, #cc1400);
+}
+
+/* ============================================
+   CURSOR FOLLOWER (Large Circle)
+============================================ */
+.cursor-follower {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-color, #cc1400);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+    transition: 
+        width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        opacity 0.3s ease,
+        border-width 0.3s ease,
+        transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.6;
+}
+
+/* Follower States */
+.cursor-follower.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cursor-follower.hover {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 102, 204, 0.1);
+    border-color: var(--primary-color, #cc1400);
+    opacity: 1;
+}
+
+.cursor-follower.hover-large {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 102, 204, 0.05);
+    border-width: 1px;
+}
+
+.cursor-follower.click {
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 102, 204, 0.2);
+}
+
+.cursor-follower.magnetic {
+    transition: 
+        width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cursor-follower.link-hover {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 102, 204, 0.1);
+    border-color: transparent;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower.button-hover {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--white, #ffffff);
+    opacity: 0.8;
+}
+
+.cursor-follower.text-mode {
+    width: 2px;
+    height: 30px;
+    border-radius: 1px;
+    border: none;
+    background: var(--primary-color, #cc1400);
+    opacity: 0.5;
+}
+
+/* ============================================
+   CURSOR TRAIL EFFECT
+============================================ */
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(0, 102, 204, 0.3) 0%,
+        rgba(0, 168, 232, 0.1) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-trail.active {
+    opacity: 1;
+}
+
+/* Trail Particles */
+.trail-particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    background: var(--primary-color, #cc1400);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    animation: trailFade 0.8s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+/* ============================================
+   CURSOR TEXT (Shows on specific hovers)
+============================================ */
+.cursor-text {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100002;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        opacity 0.4s ease,
+        visibility 0.4s ease,
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cursor-text.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cursor-text span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    min-height: 80px;
+    padding: 15px 20px;
+    background: var(--primary-color, #cc0000);
+    color: var(--white, #ffffff);
+    font-family: var(--font-primary, 'Poppins', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50%;
+    white-space: nowrap;
+}
+
+/* ============================================
+   MAGNETIC BUTTON EFFECT
+============================================ */
+[data-magnetic] {
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-magnetic] > * {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   CURSOR HOVER STATES FOR ELEMENTS
+============================================ */
+
+/* Links */
+a:hover ~ .cursor-wrapper .cursor,
+a:hover ~ .cursor-wrapper .cursor-follower {
+    /* Handled by JavaScript */
+}
+
+/* Buttons */
+.btn {
+    position: relative;
+}
+
+/* Images & Cards */
+[data-cursor="view"] {
+    cursor: none;
+}
+
+[data-cursor="drag"] {
+    cursor: none;
+}
+
+[data-cursor="play"] {
+    cursor: none;
+}
+
+/* ============================================
+   CURSOR BLEND MODES
+============================================ */
+.cursor.blend {
+    mix-blend-mode: difference;
+    background: var(--white, #ffffff);
+}
+
+.cursor-follower.blend {
+    mix-blend-mode: difference;
+    border-color: var(--white, #ffffff);
+}
+
+/* ============================================
+   CURSOR ON DARK BACKGROUNDS
+============================================ */
+.hero-section .cursor,
+[data-theme="dark"] .cursor {
+    background: var(--white, #ffffff);
+}
+
+.hero-section .cursor-follower,
+[data-theme="dark"] .cursor-follower {
+    border-color: var(--white, #ffffff);
+}
+
+.hero-section .cursor-follower.hover,
+[data-theme="dark"] .cursor-follower.hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--white, #ffffff);
+}
+
+/* ============================================
+   CURSOR LOADING STATE
+============================================ */
+.cursor.loading {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color, #cc3a00);
+    animation: cursorSpin 0.8s linear infinite;
+}
+
+.cursor-follower.loading {
+    width: 50px;
+    height: 50px;
+    border-width: 1px;
+    border-style: dashed;
+    animation: cursorSpin 2s linear infinite reverse;
+}
+
+@keyframes cursorSpin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ============================================
+   CURSOR RIPPLE EFFECT
+============================================ */
+.cursor-ripple {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color, #cc1800);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99997;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.cursor-ripple.animate {
+    animation: cursorRipple 0.6s ease-out forwards;
+}
+
+@keyframes cursorRipple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   CURSOR GLOW EFFECT
+============================================ */
+.cursor-glow {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99996;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(0, 102, 204, 0.15) 0%,
+        rgba(0, 168, 232, 0.05) 40%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    filter: blur(20px);
+}
+
+.cursor-glow.active {
+    opacity: 1;
+}
+
+/* ============================================
+   CURSOR STRETCH EFFECT
+============================================ */
+.cursor.stretch {
+    width: 8px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.cursor-follower.stretch {
+    width: 40px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+/* ============================================
+   MOBILE - HIDE CUSTOM CURSOR
+============================================ */
+@media (max-width: 991px) {
+    .cursor-wrapper,
+    .cursor,
+    .cursor-follower,
+    .cursor-trail,
+    .cursor-text,
+    .cursor-glow,
+    .cursor-ripple,
+    .trail-particle {
+        display: none !important;
+    }
+    
+    * {
+        cursor: auto !important;
+    }
+    
+    a, button, [role="button"] {
+        cursor: pointer !important;
+    }
+}
+
+/* ============================================
+   TOUCH DEVICES - HIDE CUSTOM CURSOR
+============================================ */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-wrapper,
+    .cursor,
+    .cursor-follower,
+    .cursor-trail,
+    .cursor-text,
+    .cursor-glow {
+        display: none !important;
+    }
+    
+    * {
+        cursor: auto !important;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .cursor,
+    .cursor-follower,
+    .cursor-trail,
+    .cursor-text {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .trail-particle,
+    .cursor-ripple {
+        display: none !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -1891,7 +3305,7 @@ html {
     <!-- Navbar -->
  <nav class="navbar" id="navbar">
         <div class="logo-container">
-            <a href="#index.html" class="logo">
+            <a href="index.html" class="logo">
                 <!-- Main Logo (shows when not scrolled - Desktop only) -->
                 <img src="img/logo2.png" 
                      alt="Main Logo" 
@@ -1909,7 +3323,7 @@ html {
                
             </span>
             <li>
-                <a href="index.html">Home</a>
+                <a href="#index.html">Home</a>
             </li>
             <li class="dropdown" id="serviceDropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle">
@@ -2013,128 +3427,220 @@ html {
         </button>
     </nav>
 
+    <!-- Custom Cursor Elements -->
+<div class="cursor-wrapper">
+    <!-- Main Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <!-- Cursor Follower -->
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <!-- Cursor Trail -->
+    <div class="cursor-trail" id="cursor-trail"></div>
+</div>
+
+<!-- Optional: Cursor Text for Hover -->
+<div class="cursor-text" id="cursor-text">
+    <span></span>
+</div>
+
     <!-- Overlay for Mobile Menu -->
     <div class="overlay" id="overlay"></div>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="hero-video-container">
-            <video autoplay muted loop playsinline id="hero-video">
-                <source src="http://www.amazingwebtech.com/img/Cloudy-water.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <!-- Animated Background Elements -->
-        <div class="hero-bg-elements">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-        
-        <div class="hero-slider" id="hero-slider">
-            <!-- Slide 1 -->
-            <div class="slide active">
-                <div class="hero-content">
-                    <span class="subheading">Amazing Webtech</span>
-                    <h1 class="main-heading">DESIGN<br>DELIVERED</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">We are a web design agency helping businesses of all sizes get a better return from online activities.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">CONTACT US NOW!</a>
-                    </div>
-                    <a href="websitedesign .html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="slide">
-                <div class="hero-content">
-                    <span class="subheading">Amazing WebTech</span>
-                    <h1 class="main-heading">CREATIVE<br>WEB</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">We create, design, build, host and support websites that drive results.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">CONTACT US NOW!</a>
-                    </div>
-                    <a href="websitedesign .html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="slide">
-                <div class="hero-content">
-                    <span class="subheading">Amazing WebTech</span>
-                    <h1 class="main-heading">CORPORATE<br>BRANDING</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">AWT provides branding solutions to build a unique identity for your brand.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">CONTACT US NOW!</a>
-                    </div>
-                    <a href="branding.html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Slide 4 -->
-            <div class="slide">
-                <div class="hero-content">
-                    <span class="subheading">Amazing WebTech</span>
-                    <h1 class="main-heading">DIGITAL<br>MARKETING</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">Wide range of digital marketing services tailored to suit your needs.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">WE'RE CREATIVE</a>
-                    </div>
-                    <a href="digitalmarketing.html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Slide 5 -->
-            <div class="slide">
-                <div class="hero-content">
-                    <span class="subheading">Amazing WebTech</span>
-                    <h1 class="main-heading">UI / UX<br>DESIGN</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">Creative and impressive interfaces that understand user needs.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">WE'RE CREATIVE</a>
-                    </div>
-                    <a href="uiux.html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Slide 6 -->
-            <div class="slide">
-                <div class="hero-content">
-                    <span class="subheading">Amazing WebTech</span>
-                    <h1 class="main-heading">MOBILE<br>APPS</h1>
-                    <p class="hero-description" style="color: white; font-weight: 700;">Innovative Android and iPhone App Development Solutions.</p>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-outline">CONTACT US NOW!</a>
-                    </div>
-                    <a href="mobileapp.html" class="scroll-indicator">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slider Navigation -->
-       <div class="slider-nav">
-    <button class="slider-arrow prev" id="prev-slide" aria-label="Previous slide">
-        <img src="img/slider-left-thin-arrow.png" >
-    </button>
+    <!-- Hero Section -->
+<section class="hero-section" id="hero">
+    <!-- Video Background -->
+    <div class="hero-video-container">
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="http://www.amazingwebtech.com/img/Cloudy-water.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
     
-    <button class="slider-arrow next" id="next-slide" aria-label="Next slide">
-        <img src="img/slider-right-thin-arrow.png" >
-    </button>
-</div>
-    </section>
+    <!-- Animated Background Elements -->
+    <div class="hero-bg-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <!-- Slider Container -->
+    <div class="hero-slider" id="hero-slider">
+        <!-- Slide 1 -->
+        <div class="slide active" data-slide="1">
+            <div class="hero-content">
+                <span class="subheading">Amazing Webtech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">DESIGN</span></span>
+                    <span class="line"><span class="line-inner highlight">DELIVERED</span></span>
+                </h1>
+                <p class="hero-description">We are a web design agency helping businesses of all sizes get a better return from online activities.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>CONTACT US NOW!</span>
+                    </a>
+                    <a href="about.html" class="btn btn-primary">
+                        <span>LEARN MORE</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide" data-slide="2">
+            <div class="hero-content">
+                <span class="subheading">Amazing WebTech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">CREATIVE</span></span>
+                    <span class="line"><span class="line-inner highlight">WEB</span></span>
+                </h1>
+                <p class="hero-description">We create, design, build, host and support websites that drive results.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>CONTACT US NOW!</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide" data-slide="3">
+            <div class="hero-content">
+                <span class="subheading">Amazing WebTech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">CORPORATE</span></span>
+                    <span class="line"><span class="line-inner highlight">BRANDING</span></span>
+                </h1>
+                <p class="hero-description">AWT provides branding solutions to build a unique identity for your brand.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>GET STARTED</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide" data-slide="4">
+            <div class="hero-content">
+                <span class="subheading">Amazing WebTech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">DIGITAL</span></span>
+                    <span class="line"><span class="line-inner highlight">MARKETING</span></span>
+                </h1>
+                <p class="hero-description">Wide range of digital marketing services tailored to suit your needs.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>WE'RE CREATIVE</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="slide" data-slide="5">
+            <div class="hero-content">
+                <span class="subheading">Amazing WebTech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">UI / UX</span></span>
+                    <span class="line"><span class="line-inner highlight">DESIGN</span></span>
+                </h1>
+                <p class="hero-description">Creative and impressive interfaces that understand user needs.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>VIEW PORTFOLIO</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 6 -->
+        <div class="slide" data-slide="6">
+            <div class="hero-content">
+                <span class="subheading">Amazing WebTech</span>
+                <h1 class="main-heading">
+                    <span class="line"><span class="line-inner">MOBILE</span></span>
+                    <span class="line"><span class="line-inner highlight">APPS</span></span>
+                </h1>
+                <p class="hero-description">Innovative Android and iPhone App Development Solutions.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-outline">
+                        <span>CONTACT US NOW!</span>
+                    </a>
+                </div>
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Scroll Down</span>
+                    <div class="scroll-icon">
+                        <span class="scroll-dot"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slider Navigation Arrows -->
+    <div class="slider-nav">
+        <button class="slider-arrow prev" id="prev-slide" aria-label="Previous slide">
+            <img src="img/slider-left-thin-arrow.png" alt="Previous">
+        </button>
+        <button class="slider-arrow next" id="next-slide" aria-label="Next slide">
+            <img src="img/slider-right-thin-arrow.png" alt="Next">
+        </button>
+    </div>
+    
+    <!-- Slider Dots -->
+    <div class="slider-dots" id="slider-dots">
+        <!-- Dots will be generated by JavaScript -->
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="slider-progress">
+        <div class="slider-progress-bar" id="progress-bar"></div>
+    </div>
+    
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span class="current" id="current-slide">01</span>
+        <span class="separator">/</span>
+        <span class="total" id="total-slides">06</span>
+    </div>
+    
+    <!-- Pause/Play Button -->
+    <div class="slider-control">
+        <button class="pause-play-btn" id="pause-play" aria-label="Pause slideshow">
+            <i class="fas fa-pause" id="pause-icon"></i>
+        </button>
+    </div>
+</section>
 
     <main id="main-content">
         <!-- Features Section -->
@@ -2414,6 +3920,455 @@ Branding, UX, UI, SEO, Marketing, Marketing Automation, Mobility, graphics desig
 // ===================================
 // Main JavaScript - Optimized
 // ===================================
+class HeroSlider {
+    constructor(options = {}) {
+        // Default options
+        this.options = {
+            autoplay: true,
+            autoplaySpeed: 5000,
+            animationType: 'fade', // 'fade', 'slide', 'zoom'
+            pauseOnHover: true,
+            showDots: true,
+            showProgress: true,
+            showCounter: true,
+            keyboard: true,
+            touch: true,
+            ...options
+        };
+
+        // Elements
+        this.slider = document.getElementById('hero-slider');
+        this.slides = document.querySelectorAll('.slide');
+        this.prevBtn = document.getElementById('prev-slide');
+        this.nextBtn = document.getElementById('next-slide');
+        this.dotsContainer = document.getElementById('slider-dots');
+        this.progressBar = document.getElementById('progress-bar');
+        this.currentSlideEl = document.getElementById('current-slide');
+        this.totalSlidesEl = document.getElementById('total-slides');
+        this.pausePlayBtn = document.getElementById('pause-play');
+        this.pauseIcon = document.getElementById('pause-icon');
+        this.heroSection = document.getElementById('hero');
+
+        // State
+        this.currentIndex = 0;
+        this.totalSlides = this.slides.length;
+        this.isPlaying = this.options.autoplay;
+        this.autoplayInterval = null;
+        this.progressInterval = null;
+        this.progress = 0;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+
+        // Initialize
+        this.init();
+    }
+
+    init() {
+        this.createDots();
+        this.updateCounter();
+        this.bindEvents();
+        
+        if (this.isPlaying) {
+            this.startAutoplay();
+        }
+        
+        // Initial animation for first slide
+        this.animateSlide(0, 'in');
+    }
+
+    createDots() {
+        if (!this.options.showDots || !this.dotsContainer) return;
+
+        this.dotsContainer.innerHTML = '';
+        
+        for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.dataset.index = i;
+            this.dotsContainer.appendChild(dot);
+        }
+    }
+
+    updateDots() {
+        if (!this.dotsContainer) return;
+        
+        const dots = this.dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    updateCounter() {
+        if (!this.options.showCounter) return;
+        
+        if (this.currentSlideEl) {
+            this.currentSlideEl.textContent = String(this.currentIndex + 1).padStart(2, '0');
+        }
+        if (this.totalSlidesEl) {
+            this.totalSlidesEl.textContent = String(this.totalSlides).padStart(2, '0');
+        }
+    }
+
+    animateSlide(index, direction) {
+        const slide = this.slides[index];
+        const animationType = this.options.animationType;
+
+        // Remove all animation classes
+        slide.classList.remove(
+            'fade-in', 'fade-out',
+            'slide-left-in', 'slide-left-out',
+            'slide-right-in', 'slide-right-out',
+            'zoom-in', 'zoom-out'
+        );
+
+        // Add appropriate animation class
+        if (animationType === 'fade') {
+            slide.classList.add(direction === 'in' ? 'fade-in' : 'fade-out');
+        } else if (animationType === 'slide') {
+            if (direction === 'in') {
+                slide.classList.add(this.slideDirection === 'next' ? 'slide-left-in' : 'slide-right-in');
+            } else {
+                slide.classList.add(this.slideDirection === 'next' ? 'slide-left-out' : 'slide-right-out');
+            }
+        } else if (animationType === 'zoom') {
+            slide.classList.add(direction === 'in' ? 'zoom-in' : 'zoom-out');
+        }
+    }
+
+    goToSlide(index, direction = 'next') {
+        if (index === this.currentIndex) return;
+
+        this.slideDirection = direction;
+        
+        // Animate out current slide
+        this.slides[this.currentIndex].classList.remove('active');
+        this.animateSlide(this.currentIndex, 'out');
+
+        // Update index
+        this.currentIndex = index;
+        if (this.currentIndex >= this.totalSlides) this.currentIndex = 0;
+        if (this.currentIndex < 0) this.currentIndex = this.totalSlides - 1;
+
+        // Animate in new slide
+        setTimeout(() => {
+            this.slides[this.currentIndex].classList.add('active');
+            this.animateSlide(this.currentIndex, 'in');
+        }, 100);
+
+        // Update UI
+        this.updateDots();
+        this.updateCounter();
+        this.resetProgress();
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.goToSlide(nextIndex, 'next');
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.goToSlide(prevIndex, 'prev');
+    }
+
+    startAutoplay() {
+        this.stopAutoplay();
+        this.isPlaying = true;
+        this.updatePausePlayButton();
+        this.startProgress();
+        
+        this.autoplayInterval = setInterval(() => {
+            this.nextSlide();
+        }, this.options.autoplaySpeed);
+    }
+
+    stopAutoplay() {
+        this.isPlaying = false;
+        this.updatePausePlayButton();
+        this.stopProgress();
+        
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+        }
+    }
+
+    toggleAutoplay() {
+        if (this.isPlaying) {
+            this.stopAutoplay();
+        } else {
+            this.startAutoplay();
+        }
+    }
+
+    updatePausePlayButton() {
+        if (!this.pauseIcon) return;
+        
+        if (this.isPlaying) {
+            this.pauseIcon.className = 'fas fa-pause';
+            this.pausePlayBtn?.setAttribute('aria-label', 'Pause slideshow');
+        } else {
+            this.pauseIcon.className = 'fas fa-play';
+            this.pausePlayBtn?.setAttribute('aria-label', 'Play slideshow');
+        }
+    }
+
+    startProgress() {
+        if (!this.options.showProgress || !this.progressBar) return;
+        
+        this.progress = 0;
+        this.progressBar.style.width = '0%';
+        
+        const increment = 100 / (this.options.autoplaySpeed / 50);
+        
+        this.progressInterval = setInterval(() => {
+            this.progress += increment;
+            if (this.progress > 100) this.progress = 100;
+            this.progressBar.style.width = `${this.progress}%`;
+        }, 50);
+    }
+
+    stopProgress() {
+        if (this.progressInterval) {
+            clearInterval(this.progressInterval);
+            this.progressInterval = null;
+        }
+    }
+
+    resetProgress() {
+        this.stopProgress();
+        if (this.isPlaying) {
+            this.startProgress();
+        }
+    }
+
+    handleTouchStart(e) {
+        this.touchStartX = e.changedTouches[0].screenX;
+    }
+
+    handleTouchEnd(e) {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+    }
+
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                this.stopAutoplay();
+                this.nextSlide();
+                if (this.options.autoplay) {
+                    setTimeout(() => this.startAutoplay(), 1000);
+                }
+            } else {
+                // Swipe right - prev slide
+                this.stopAutoplay();
+                this.prevSlide();
+                if (this.options.autoplay) {
+                    setTimeout(() => this.startAutoplay(), 1000);
+                }
+            }
+        }
+    }
+
+    bindEvents() {
+        // Navigation buttons
+        this.prevBtn?.addEventListener('click', () => {
+            this.stopAutoplay();
+            this.prevSlide();
+            if (this.options.autoplay) {
+                setTimeout(() => this.startAutoplay(), 1000);
+            }
+        });
+
+        this.nextBtn?.addEventListener('click', () => {
+            this.stopAutoplay();
+            this.nextSlide();
+            if (this.options.autoplay) {
+                setTimeout(() => this.startAutoplay(), 1000);
+            }
+        });
+
+        // Dot navigation
+        this.dotsContainer?.addEventListener('click', (e) => {
+            const dot = e.target.closest('.slider-dot');
+            if (dot) {
+                const index = parseInt(dot.dataset.index);
+                this.stopAutoplay();
+                this.goToSlide(index, index > this.currentIndex ? 'next' : 'prev');
+                if (this.options.autoplay) {
+                    setTimeout(() => this.startAutoplay(), 1000);
+                }
+            }
+        });
+
+        // Pause/Play button
+        this.pausePlayBtn?.addEventListener('click', () => {
+            this.toggleAutoplay();
+        });
+
+        // Pause on hover
+        if (this.options.pauseOnHover) {
+            this.heroSection?.addEventListener('mouseenter', () => {
+                if (this.isPlaying) {
+                    this.stopProgress();
+                    clearInterval(this.autoplayInterval);
+                }
+            });
+
+            this.heroSection?.addEventListener('mouseleave', () => {
+                if (this.isPlaying) {
+                    this.startAutoplay();
+                }
+            });
+        }
+
+        // Keyboard navigation
+        if (this.options.keyboard) {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    this.stopAutoplay();
+                    this.prevSlide();
+                    if (this.options.autoplay) {
+                        setTimeout(() => this.startAutoplay(), 1000);
+                    }
+                } else if (e.key === 'ArrowRight') {
+                    this.stopAutoplay();
+                    this.nextSlide();
+                    if (this.options.autoplay) {
+                        setTimeout(() => this.startAutoplay(), 1000);
+                    }
+                } else if (e.key === ' ') {
+                    e.preventDefault();
+                    this.toggleAutoplay();
+                }
+            });
+        }
+
+        // Touch events
+        if (this.options.touch) {
+            this.heroSection?.addEventListener('touchstart', (e) => {
+                this.handleTouchStart(e);
+            }, { passive: true });
+
+            this.heroSection?.addEventListener('touchend', (e) => {
+                this.handleTouchEnd(e);
+            }, { passive: true });
+        }
+
+        // Button ripple effect
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Visibility change - pause when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (this.isPlaying) {
+                    this.stopProgress();
+                    clearInterval(this.autoplayInterval);
+                }
+            } else {
+                if (this.isPlaying) {
+                    this.startAutoplay();
+                }
+            }
+        });
+    }
+}
+
+// ============================================
+// INITIALIZE SLIDER
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize with custom options
+    const slider = new HeroSlider({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        animationType: 'fade', // Try: 'fade', 'slide', 'zoom'
+        pauseOnHover: true,
+        showDots: true,
+        showProgress: true,
+        showCounter: true,
+        keyboard: true,
+        touch: true
+    });
+
+    // Make slider accessible globally if needed
+    window.heroSlider = slider;
+});
+
+// ============================================
+// NAVBAR SCROLL EFFECT
+// ============================================
+
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// ============================================
+// MOBILE MENU
+// ============================================
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const overlay = document.getElementById('overlay');
+
+function toggleMenu() {
+    navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+}
+
+menuToggle?.addEventListener('click', toggleMenu);
+overlay?.addEventListener('click', toggleMenu);
+
+// Close menu when clicking nav links
+document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+});
+
+// Mobile dropdown
+const serviceDropdown = document.getElementById('serviceDropdown');
+const dropdownToggle = serviceDropdown?.querySelector('.dropdown-toggle');
+
+dropdownToggle?.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        e.preventDefault();
+        serviceDropdown.classList.toggle('active');
+    }
+}); 
+// ===================================
 
 document.addEventListener('DOMContentLoaded', () => {
     // initNavbar();
@@ -2427,100 +4382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initVideoHandler();
 });
 
-// ===================================
-// Navbar
-// ===================================
- // DOM Elements
-        const navbar = document.getElementById('navbar');
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        const overlay = document.getElementById('overlay');
-        const closeMenu = document.getElementById('closeMenu');
-        const serviceDropdown = document.getElementById('serviceDropdown');
-        const dropdownToggle = serviceDropdown.querySelector('.dropdown-toggle');
 
-        // Scroll Effect - Change Logo
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Function to close mobile menu
-        function closeMobileMenu() {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Function to open mobile menu
-        function openMobileMenu() {
-            menuToggle.classList.add('active');
-            navLinks.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Mobile Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
-
-        // Close menu button
-        closeMenu.addEventListener('click', closeMobileMenu);
-
-        // Close menu when clicking overlay
-        overlay.addEventListener('click', closeMobileMenu);
-
-        // Service Dropdown Toggle for Mobile
-        dropdownToggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                serviceDropdown.classList.toggle('active');
-            }
-        });
-
-        // Close dropdown when clicking on dropdown items (mobile)
-        const dropdownItems = serviceDropdown.querySelectorAll('.dropdown-menu a');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    closeMobileMenu();
-                    serviceDropdown.classList.remove('active');
-                }
-            });
-        });
-
-        // Close mobile menu when clicking on nav links (except dropdown toggle)
-        const navLinkItems = navLinks.querySelectorAll('li > a:not(.dropdown-toggle)');
-        navLinkItems.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    closeMobileMenu();
-                }
-            });
-        });
-
-        // Close mobile menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 992) {
-                closeMobileMenu();
-                serviceDropdown.classList.remove('active');
-            }
-        });
-
-        // Prevent body scroll when menu is open
-        navLinks.addEventListener('touchmove', (e) => {
-            e.stopPropagation();
-        }, { passive: true });
 // ===================================
 // Hero Slider
 // ===================================
@@ -2807,10 +4669,631 @@ window.addEventListener('resize', () => {
 
 // Console branding
 console.log('%c 🚀 Amazing WebTech ', 'background: linear-gradient(135deg, #6366f1, #a855f7); color: white; padding: 10px 20px; font-size: 16px; border-radius: 8px; font-weight: bold;');
+
+// ============================================
+// CUSTOM CURSOR ANIMATION SYSTEM
+// Amazing WebTech Style
+// ============================================
+
+class CustomCursor {
+    constructor(options = {}) {
+        // Default options
+        this.options = {
+            cursorSize: 8,
+            followerSize: 40,
+            cursorColor: '#0066cc',
+            followerColor: '#0066cc',
+            trailEnabled: true,
+            trailLength: 8,
+            magneticEnabled: true,
+            magneticStrength: 0.3,
+            glowEnabled: true,
+            textCursor: true,
+            hoverScale: 1.5,
+            clickScale: 0.8,
+            speed: 0.15,
+            followerSpeed: 0.1,
+            ...options
+        };
+
+        // Elements
+        this.cursor = document.getElementById('cursor');
+        this.follower = document.getElementById('cursor-follower');
+        this.trail = document.getElementById('cursor-trail');
+        this.cursorText = document.getElementById('cursor-text');
+
+        // State
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.cursorX = 0;
+        this.cursorY = 0;
+        this.followerX = 0;
+        this.followerY = 0;
+        this.isHovering = false;
+        this.isClicking = false;
+        this.isHidden = false;
+        this.currentElement = null;
+        this.trailParticles = [];
+        this.lastTrailTime = 0;
+        this.rafId = null;
+
+        // Check if device supports hover
+        this.supportsHover = window.matchMedia('(hover: hover)').matches;
+        this.isTouchDevice = 'ontouchstart' in window;
+
+        // Initialize
+        if (this.supportsHover && !this.isTouchDevice) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.createGlowElement();
+        this.bindEvents();
+        this.animate();
+        this.setupMagneticElements();
+        this.addHoverListeners();
+        
+        // Show cursor after initialization
+        setTimeout(() => {
+            if (this.cursor) this.cursor.style.opacity = '1';
+            if (this.follower) this.follower.style.opacity = '0.6';
+        }, 100);
+    }
+
+    createGlowElement() {
+        if (!this.options.glowEnabled) return;
+        
+        this.glow = document.createElement('div');
+        this.glow.className = 'cursor-glow';
+        document.body.appendChild(this.glow);
+    }
+
+    bindEvents() {
+        // Mouse move
+        document.addEventListener('mousemove', (e) => this.onMouseMove(e));
+        
+        // Mouse down/up
+        document.addEventListener('mousedown', () => this.onMouseDown());
+        document.addEventListener('mouseup', () => this.onMouseUp());
+        
+        // Mouse enter/leave window
+        document.addEventListener('mouseenter', () => this.showCursor());
+        document.addEventListener('mouseleave', () => this.hideCursor());
+        
+        // Focus/blur for accessibility
+        document.addEventListener('focusin', (e) => this.onFocusIn(e));
+        document.addEventListener('focusout', () => this.onFocusOut());
+    }
+
+    onMouseMove(e) {
+        this.mouseX = e.clientX;
+        this.mouseY = e.clientY;
+        
+        // Create trail particles
+        if (this.options.trailEnabled) {
+            this.createTrailParticle(e.clientX, e.clientY);
+        }
+
+        // Check element under cursor
+        this.checkElementUnderCursor(e);
+    }
+
+    onMouseDown() {
+        this.isClicking = true;
+        
+        if (this.cursor) this.cursor.classList.add('click');
+        if (this.follower) this.follower.classList.add('click');
+        
+        // Create ripple effect
+        this.createRipple();
+    }
+
+    onMouseUp() {
+        this.isClicking = false;
+        
+        if (this.cursor) this.cursor.classList.remove('click');
+        if (this.follower) this.follower.classList.remove('click');
+    }
+
+    onFocusIn(e) {
+        const target = e.target;
+        if (target.matches('a, button, [role="button"], input, textarea, select')) {
+            this.setHoverState(true, 'focus');
+        }
+    }
+
+    onFocusOut() {
+        this.setHoverState(false);
+    }
+
+    showCursor() {
+        this.isHidden = false;
+        if (this.cursor) this.cursor.classList.remove('hidden');
+        if (this.follower) this.follower.classList.remove('hidden');
+    }
+
+    hideCursor() {
+        this.isHidden = true;
+        if (this.cursor) this.cursor.classList.add('hidden');
+        if (this.follower) this.follower.classList.add('hidden');
+    }
+
+    checkElementUnderCursor(e) {
+        const element = document.elementFromPoint(e.clientX, e.clientY);
+        
+        if (element !== this.currentElement) {
+            this.currentElement = element;
+            this.updateCursorForElement(element);
+        }
+    }
+
+    updateCursorForElement(element) {
+        if (!element) return;
+
+        // Reset states
+        this.resetCursorState();
+
+        // Check for specific cursor types
+        const cursorType = element.closest('[data-cursor]')?.dataset.cursor;
+        
+        if (cursorType) {
+            this.handleCustomCursor(cursorType, element);
+            return;
+        }
+
+        // Check for interactive elements
+        if (element.closest('a, button, [role="button"]')) {
+            this.setHoverState(true, 'link');
+        } else if (element.closest('input, textarea, select')) {
+            this.setTextMode(true);
+        } else if (element.closest('.btn')) {
+            this.setHoverState(true, 'button');
+        } else if (element.closest('[data-magnetic]')) {
+            this.setHoverState(true, 'magnetic');
+        } else if (element.closest('img, video, .image-wrapper, .card')) {
+            this.setHoverState(true, 'media');
+        } else {
+            this.setHoverState(false);
+        }
+    }
+
+    handleCustomCursor(type, element) {
+        switch (type) {
+            case 'view':
+                this.showCursorText('View');
+                break;
+            case 'drag':
+                this.showCursorText('Drag');
+                break;
+            case 'play':
+                this.showCursorText('Play');
+                break;
+            case 'explore':
+                this.showCursorText('Explore');
+                break;
+            case 'link':
+                this.showCursorText('Click');
+                break;
+            case 'zoom':
+                this.showCursorText('Zoom');
+                break;
+            case 'none':
+                this.hideCursor();
+                break;
+            default:
+                this.showCursorText(type);
+        }
+    }
+
+    setHoverState(isHovering, type = 'default') {
+        this.isHovering = isHovering;
+        
+        if (isHovering) {
+            if (this.cursor) this.cursor.classList.add('hover');
+            if (this.follower) {
+                this.follower.classList.add('hover');
+                
+                switch (type) {
+                    case 'link':
+                        this.follower.classList.add('link-hover');
+                        break;
+                    case 'button':
+                        this.follower.classList.add('button-hover');
+                        break;
+                    case 'magnetic':
+                        this.follower.classList.add('magnetic');
+                        break;
+                    case 'media':
+                        this.follower.classList.add('hover-large');
+                        break;
+                }
+            }
+            
+            // Activate glow
+            if (this.glow) this.glow.classList.add('active');
+        } else {
+            this.resetCursorState();
+        }
+    }
+
+    setTextMode(isTextMode) {
+        if (isTextMode) {
+            if (this.cursor) this.cursor.classList.add('text-mode');
+            if (this.follower) this.follower.classList.add('text-mode');
+        } else {
+            if (this.cursor) this.cursor.classList.remove('text-mode');
+            if (this.follower) this.follower.classList.remove('text-mode');
+        }
+    }
+
+    showCursorText(text) {
+        if (!this.cursorText || !this.options.textCursor) return;
+        
+        const textSpan = this.cursorText.querySelector('span');
+        if (textSpan) textSpan.textContent = text;
+        
+        this.cursorText.classList.add('active');
+        
+        if (this.cursor) this.cursor.classList.add('hover');
+        if (this.follower) this.follower.classList.add('hover');
+    }
+
+    hideCursorText() {
+        if (!this.cursorText) return;
+        this.cursorText.classList.remove('active');
+    }
+
+    resetCursorState() {
+        if (this.cursor) {
+            this.cursor.classList.remove('hover', 'text-mode', 'blend', 'stretch');
+        }
+        if (this.follower) {
+            this.follower.classList.remove(
+                'hover', 'hover-large', 'link-hover', 
+                'button-hover', 'magnetic', 'text-mode', 
+                'blend', 'stretch'
+            );
+        }
+        if (this.glow) {
+            this.glow.classList.remove('active');
+        }
+        
+        this.hideCursorText();
+    }
+
+    createTrailParticle(x, y) {
+        const now = Date.now();
+        if (now - this.lastTrailTime < 30) return;
+        this.lastTrailTime = now;
+
+        const particle = document.createElement('div');
+        particle.className = 'trail-particle';
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        document.body.appendChild(particle);
+
+        // Remove after animation
+        setTimeout(() => {
+            particle.remove();
+        }, 800);
+    }
+
+    createRipple() {
+        const ripple = document.createElement('div');
+        ripple.className = 'cursor-ripple';
+        ripple.style.left = `${this.mouseX}px`;
+        ripple.style.top = `${this.mouseY}px`;
+        document.body.appendChild(ripple);
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            ripple.classList.add('animate');
+        });
+
+        // Remove after animation
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+
+    setupMagneticElements() {
+        if (!this.options.magneticEnabled) return;
+
+        const magneticElements = document.querySelectorAll('[data-magnetic]');
+        
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => this.handleMagneticMove(e, el));
+            el.addEventListener('mouseleave', () => this.handleMagneticLeave(el));
+        });
+    }
+
+    handleMagneticMove(e, element) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const deltaX = (e.clientX - centerX) * this.options.magneticStrength;
+        const deltaY = (e.clientY - centerY) * this.options.magneticStrength;
+        
+        element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        
+        // Also move inner content
+        const inner = element.querySelector('span, img, i');
+        if (inner) {
+            inner.style.transform = `translate(${deltaX * 0.5}px, ${deltaY * 0.5}px)`;
+        }
+    }
+
+    handleMagneticLeave(element) {
+        element.style.transform = '';
+        
+        const inner = element.querySelector('span, img, i');
+        if (inner) {
+            inner.style.transform = '';
+        }
+    }
+
+    addHoverListeners() {
+        // Add listeners to all interactive elements
+        const interactiveElements = document.querySelectorAll(
+            'a, button, [role="button"], input, textarea, select, .btn, [data-cursor], [data-magnetic]'
+        );
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => this.updateCursorForElement(el));
+            el.addEventListener('mouseleave', () => this.resetCursorState());
+        });
+    }
+
+    animate() {
+        // Smooth cursor movement using lerp
+        this.cursorX += (this.mouseX - this.cursorX) * this.options.speed;
+        this.cursorY += (this.mouseY - this.cursorY) * this.options.speed;
+        
+        // Even smoother follower movement
+        this.followerX += (this.mouseX - this.followerX) * this.options.followerSpeed;
+        this.followerY += (this.mouseY - this.followerY) * this.options.followerSpeed;
+
+        // Apply positions
+        if (this.cursor) {
+            this.cursor.style.left = `${this.cursorX}px`;
+            this.cursor.style.top = `${this.cursorY}px`;
+        }
+
+        if (this.follower) {
+            this.follower.style.left = `${this.followerX}px`;
+            this.follower.style.top = `${this.followerY}px`;
+        }
+
+        if (this.trail) {
+            this.trail.style.left = `${this.followerX}px`;
+            this.trail.style.top = `${this.followerY}px`;
+        }
+
+        if (this.cursorText) {
+            this.cursorText.style.left = `${this.followerX}px`;
+            this.cursorText.style.top = `${this.followerY}px`;
+        }
+
+        if (this.glow) {
+            this.glow.style.left = `${this.followerX}px`;
+            this.glow.style.top = `${this.followerY}px`;
+        }
+
+        // Continue animation loop
+        this.rafId = requestAnimationFrame(() => this.animate());
+    }
+
+    // Public methods
+    setColor(color) {
+        document.documentElement.style.setProperty('--cursor-color', color);
+        if (this.cursor) this.cursor.style.background = color;
+        if (this.follower) this.follower.style.borderColor = color;
+    }
+
+    setLoading(isLoading) {
+        if (isLoading) {
+            if (this.cursor) this.cursor.classList.add('loading');
+            if (this.follower) this.follower.classList.add('loading');
+        } else {
+            if (this.cursor) this.cursor.classList.remove('loading');
+            if (this.follower) this.follower.classList.remove('loading');
+        }
+    }
+
+    destroy() {
+        if (this.rafId) {
+            cancelAnimationFrame(this.rafId);
+        }
+        
+        if (this.glow) {
+            this.glow.remove();
+        }
+        
+        document.querySelectorAll('.trail-particle, .cursor-ripple').forEach(el => el.remove());
+    }
+
+    // Re-initialize after dynamic content load
+    refresh() {
+        this.setupMagneticElements();
+        this.addHoverListeners();
+    }
+}
+
+// ============================================
+// CURSOR SPARKLE EFFECT (Optional)
+// ============================================
+
+class CursorSparkle {
+    constructor() {
+        this.sparkles = [];
+        this.maxSparkles = 30;
+        this.colors = ['#0066cc', '#00a8e8', '#00d4ff', '#ffffff'];
+        
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('mousemove', (e) => this.createSparkle(e));
+    }
+
+    createSparkle(e) {
+        if (this.sparkles.length >= this.maxSparkles) return;
+        if (Math.random() > 0.3) return; // Only create sparkle 30% of the time
+
+        const sparkle = document.createElement('div');
+        sparkle.className = 'cursor-sparkle';
+        sparkle.style.cssText = `
+            position: fixed;
+            width: ${Math.random() * 6 + 2}px;
+            height: ${Math.random() * 6 + 2}px;
+            background: ${this.colors[Math.floor(Math.random() * this.colors.length)]};
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99995;
+            left: ${e.clientX}px;
+            top: ${e.clientY}px;
+            transform: translate(-50%, -50%);
+            animation: sparkleFade 0.8s ease-out forwards;
+        `;
+        
+        document.body.appendChild(sparkle);
+        this.sparkles.push(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+            this.sparkles = this.sparkles.filter(s => s !== sparkle);
+        }, 800);
+    }
+}
+
+// Add sparkle animation CSS dynamically
+const sparkleStyles = document.createElement('style');
+sparkleStyles.textContent = `
+    @keyframes sparkleFade {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) translateY(-20px) scale(0);
+        }
+    }
+`;
+document.head.appendChild(sparkleStyles);
+
+// ============================================
+// CURSOR SPOTLIGHT EFFECT (Optional)
+// ============================================
+
+class CursorSpotlight {
+    constructor(options = {}) {
+        this.options = {
+            size: 300,
+            opacity: 0.1,
+            color: '0, 102, 204',
+            ...options
+        };
+
+        this.spotlight = null;
+        this.init();
+    }
+
+    init() {
+        this.createSpotlight();
+        this.bindEvents();
+    }
+
+    createSpotlight() {
+        this.spotlight = document.createElement('div');
+        this.spotlight.className = 'cursor-spotlight';
+        this.spotlight.style.cssText = `
+            position: fixed;
+            width: ${this.options.size}px;
+            height: ${this.options.size}px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(
+                circle,
+                rgba(${this.options.color}, ${this.options.opacity}) 0%,
+                rgba(${this.options.color}, 0.05) 40%,
+                transparent 70%
+            );
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        `;
+        document.body.appendChild(this.spotlight);
+    }
+
+    bindEvents() {
+        document.addEventListener('mousemove', (e) => {
+            this.spotlight.style.left = `${e.clientX}px`;
+            this.spotlight.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener('mouseenter', () => {
+            this.spotlight.style.opacity = '1';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            this.spotlight.style.opacity = '0';
+        });
+    }
+
+    destroy() {
+        if (this.spotlight) {
+            this.spotlight.remove();
+        }
+    }
+}
+
+// ============================================
+// INITIALIZE CURSOR EFFECTS
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Check for hover support and not touch device
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    const isTouchDevice = 'ontouchstart' in window;
+
+    if (supportsHover && !isTouchDevice) {
+        // Initialize main cursor
+        window.customCursor = new CustomCursor({
+            trailEnabled: true,
+            magneticEnabled: true,
+            glowEnabled: true,
+            textCursor: true,
+            speed: 0.2,
+            followerSpeed: 0.1
+        });
+
+        // Optional: Enable sparkle effect
+        // window.cursorSparkle = new CursorSparkle();
+
+        // Optional: Enable spotlight effect
+        // window.cursorSpotlight = new CursorSpotlight();
+
+        console.log('Custom cursor initialized');
+    }
+});
+
+// ============================================
+// REFRESH CURSOR ON DYNAMIC CONTENT
+// ============================================
+
+// Call this after loading new content via AJAX
+function refreshCursor() {
+    if (window.customCursor) {
+        window.customCursor.refresh();
+    }
+}
+
+// Example: Refresh cursor after AJAX content load
+// document.addEventListener('contentLoaded', refreshCursor);
     </script>
 </body>
-
 </html>
-
-
-
