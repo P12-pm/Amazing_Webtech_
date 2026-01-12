@@ -2880,3 +2880,114 @@ button:focus-visible {
                 padding: 12px 20px 12px 35px;
             }
         }
+
+        /* Hide slider navigation arrows on mobile */
+@media (max-width: 768px) {
+    .slider-nav {
+        display: none !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Hero Mobile */
+    .hero-section {
+        min-height: 100vh;
+    }
+    
+    .main-heading {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        letter-spacing: 1px;
+    }
+    
+    .subheading {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        padding: 10px 20px;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 15px 30px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    
+    /* ✅ HIDE SLIDER NAVIGATION ON MOBILE */
+    .slider-nav {
+        display: none !important;
+    }
+    
+    .slider-dots {
+        bottom: 35px;
+        gap: 10px;
+    }
+    
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .slide-counter,
+    .slider-control {
+        display: none;
+    }
+    
+    .slider-progress {
+        height: 3px;
+    }
+    
+    .scroll-indicator i {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .main-heading {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .subheading {
+        font-size: 0.7rem;
+        padding: 8px 16px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 25px;
+    }
+    
+    /* ✅ Keep hidden on small mobile too */
+    .slider-nav {
+        display: none !important;
+    }
+    
+    .slider-dots {
+        bottom: 25px;
+    }
+}
