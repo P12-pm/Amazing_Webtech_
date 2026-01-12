@@ -2524,8 +2524,8 @@ button:focus-visible {
     --navbar-bg: transparent;
     --navbar-scrolled-bg: #ffffff;
     --navbar-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    --primary-color: #29a6e4;
-    --primary-hover: #4676e5;
+    --primary-color: #29b8e4;
+    --primary-hover: #46cbe5;
     --text-dark: #1a1a2e;
     --text-light: #ffffff;
     --text-muted: #6b7280;
@@ -2538,7 +2538,7 @@ button:focus-visible {
 
 /* Base Navbar */
 .navbar {
-    position: fixed;
+    position: relative
     top: 0;
     left: 0;
     width: 100%;
