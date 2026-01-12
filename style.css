@@ -2584,7 +2584,7 @@ button:focus-visible {
 
         .nav-links > li > a {
             text-decoration: none;
-            color: #333;
+            color: #398798;
             font-weight: 500;
             font-size: 16px;
             padding: 10px 0;
@@ -2595,7 +2595,7 @@ button:focus-visible {
         }
 
         .nav-links > li > a:hover {
-            color: #667eea;
+            color: #66b3ea;
         }
 
         .nav-links > li > a i {
@@ -2662,7 +2662,7 @@ button:focus-visible {
         }
 
         .dropdown-menu li a:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3a7bcb 0%, #4b7ea2 100%);
             color: white;
         }
 
