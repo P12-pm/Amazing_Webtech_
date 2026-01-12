@@ -2538,7 +2538,7 @@ button:focus-visible {
 
 /* Base Navbar */
 .navbar {
-    position: relative
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -2579,6 +2579,7 @@ button:focus-visible {
 }
 
 .logo-main {
+    height: 50px;
     display: block;
 }
 
@@ -2780,7 +2781,6 @@ button:focus-visible {
 
     /* Mobile Logo Always Dark */
     .logo-main {
-        height: 60px; 
         display: none !important;
     }
     
@@ -3065,4 +3065,3 @@ button:focus-visible {
         transform: translateX(0);
     }
 }
-
